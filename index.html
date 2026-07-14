@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pritha Arora — Product Manager & Data Analyst</title>
+<meta name="description" content="Pritha Arora — Product Manager, Data & Analytics, Full-Stack Builder. Portfolio of projects and experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fdf0f0;
+    --cream-2:#f8dfe2;
+    --cream-3:#f3ccd2;
+    --ink:#3a1a2b;
+    --ink-2:#452134;
+    --ink-3:#502a3d;
+    --terracotta:#b76e79;
+    --terracotta-dark:#7a3b48;
+    --terracotta-light:#e8b4bd;
+    --text-dark:#4a2138;
+    --text-muted-dark:#8a5464;
+    --text-light:#fbeef0;
+    --text-muted-light:#d9a8b3;
+    --border-light:#f0d3d8;
+    --border-dark:#6b3648;
+    --max:1100px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--text-dark);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  section{padding:96px 0;}
+  .eyebrow{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--terracotta); font-weight:600; margin-bottom:14px;}
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(58,26,43,0.0);
+    transition:background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+    padding:22px 0;
+  }
+  header.scrolled{
+    background:rgba(58,26,43,0.92);
+    backdrop-filter:blur(8px);
+    padding:14px 0;
+    box-shadow:0 1px 0 rgba(255,255,255,0.06);
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-family:'Fraunces', serif; font-size:19px; font-weight:600; color:var(--text-light);}
+  .logo span{color:var(--terracotta-light);}
+  .nav-links{display:flex; align-items:center; gap:36px;}
+  .nav-links a{color:var(--text-muted-light); font-size:14px; font-weight:500; transition:color .2s;}
+  .nav-links a:hover{color:var(--text-light);}
+  .nav-cta{
+    background:var(--terracotta); color:#fff !important; padding:10px 20px; border-radius:100px;
+    font-size:14px; font-weight:600; transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--terracotta-dark);}
+  .menu-btn{display:none; background:none; border:none; color:var(--text-light); font-size:26px; cursor:pointer;}
+  .mobile-menu{
+    display:none; position:fixed; top:0; right:0; bottom:0; width:78%; max-width:320px;
+    background:var(--ink-2); z-index:200; padding:24px 28px 32px; flex-direction:column;
+    transform:translateX(100%); transition:transform .3s ease; overflow:hidden;
+  }
+  .mobile-menu.open{transform:translateX(0); display:flex;}
+  .mobile-menu-top{display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px;}
+  .mobile-close{background:none; border:none; color:var(--text-light); font-size:24px; cursor:pointer; line-height:1;}
+  .mobile-menu-links{display:flex; flex-direction:column; justify-content:center; flex:1; gap:2px;}
+  .mobile-menu-links a{
+    color:var(--text-light); font-size:24px; font-weight:500; font-family:'Fraunces', serif;
+    padding:16px 2px; border-bottom:1px solid rgba(251,238,240,0.14);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .mobile-menu-links a:last-child{border-bottom:none;}
+  .mobile-menu-links a span{font-size:13px; color:var(--text-muted-light); font-family:'Inter',sans-serif; font-weight:400;}
+  .mobile-menu-cta{
+    display:block; text-align:center; background:var(--terracotta); color:#fff; font-weight:600;
+    font-size:15px; padding:14px; border-radius:100px; margin-top:12px;
+  }
+  .mobile-menu-foot{margin-top:20px; font-size:13px; color:var(--text-muted-light);}
+  .mobile-menu-blob{
+    position:absolute; right:-60px; bottom:-60px; width:200px; height:200px;
+    border-radius:58% 42% 63% 37% / 45% 55% 45% 55%; background:rgba(183,110,121,0.16); z-index:-1;
+  }
+
+  /* HERO */
+  .hero{
+    background:var(--ink);
+    color:var(--text-light);
+    padding:200px 0 140px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero:after{
+    content:""; position:absolute; right:-140px; top:-140px; width:460px; height:460px;
+    border-radius:58% 42% 63% 37% / 45% 55% 45% 55%; background:rgba(183,110,121,0.22);
+  }
+  .hero:before{
+    content:""; position:absolute; left:-90px; bottom:-120px; width:280px; height:280px;
+    border-radius:42% 58% 38% 62% / 55% 42% 58% 45%; background:rgba(232,180,189,0.12);
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero h1{font-size:clamp(44px, 7vw, 76px); line-height:1.03; margin-bottom:20px;}
+  .hero .role{font-size:clamp(17px, 2.2vw, 22px); color:var(--terracotta-light); font-weight:500; margin-bottom:22px;}
+  .hero p.lede{font-size:18px; color:var(--text-muted-light); max-width:600px; margin-bottom:40px;}
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 28px; border-radius:100px; font-size:15px; font-weight:600;
+    transition:all .2s ease; cursor:pointer; border:1.5px solid transparent;
+  }
+  .btn-primary{background:var(--terracotta); color:#fff;}
+  .btn-primary:hover{background:var(--terracotta-dark);}
+  .btn-outline{border-color:rgba(251,238,240,0.35); color:var(--text-light);}
+  .btn-outline:hover{border-color:var(--text-light); background:rgba(251,238,240,0.08);}
+
+  /* SNAPSHOT STRIP */
+  .snapshot{
+    background:var(--cream-2);
+    padding:36px 0;
+    border-bottom:1px solid var(--border-light);
+  }
+  .snapshot .wrap{display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
+  .pill{
+    background:var(--cream); border:1px solid var(--border-light); border-radius:100px;
+    padding:9px 18px; font-size:13.5px; color:var(--text-muted-dark); font-weight:500;
+    white-space:nowrap;
+  }
+  .pill b{color:var(--text-dark); font-weight:600;}
+
+  /* SECTION HEADS */
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(30px,4vw,42px); margin-bottom:14px;}
+  .section-head p{color:var(--text-muted-dark); font-size:16.5px;}
+  .light .section-head p{color:var(--text-muted-light);}
+
+  /* WORK */
+  .work{background:var(--cream);}
+  .case-card{
+    background:#fff; border:1px solid var(--border-light); border-radius:30px;
+    padding:44px; margin-bottom:32px;
+  }
+  .case-top{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:18px;}
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    background:var(--cream-2); color:var(--terracotta-dark); font-size:12.5px; font-weight:600;
+    padding:6px 13px; border-radius:100px;
+  }
+  .case-date{font-size:13px; color:var(--text-muted-dark); font-weight:500; white-space:nowrap;}
+  .case-card h3{font-size:26px; margin-bottom:16px;}
+  .case-card .problem{color:var(--text-muted-dark); font-size:15.5px; margin-bottom:14px;}
+  .case-card .problem b{color:var(--text-dark);}
+  .case-card .whatidid{font-size:15.5px; margin-bottom:28px;}
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; border-top:1px solid var(--border-light); padding-top:26px;}
+  .stat-grid .stat-num{font-size:26px; font-family:'Fraunces', serif; color:var(--terracotta-dark); font-weight:600;}
+  .stat-grid .stat-label{font-size:12.5px; color:var(--text-muted-dark); margin-top:4px;}
+  .case-doc-link{
+    display:inline-block; margin-top:22px; font-size:14px; font-weight:600; color:var(--terracotta-dark);
+    border-bottom:1.5px solid var(--terracotta); padding-bottom:2px;
+  }
+  .case-doc-link:hover{color:var(--ink); border-color:var(--ink);}
+
+  .impact-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px;}
+  .impact-card{background:var(--cream-2); border-radius:26px; padding:30px;}
+  .impact-card .impact-meta{font-size:12.5px; color:var(--text-muted-dark); font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;}
+  .impact-card h4{font-size:19px; margin-bottom:12px;}
+  .impact-card p{font-size:14.5px; color:var(--text-muted-dark); margin-bottom:18px;}
+  .impact-stats{display:flex; flex-wrap:wrap; gap:16px;}
+  .impact-stats div{font-size:13px; color:var(--text-dark);}
+  .impact-stats b{display:block; font-family:'Fraunces', serif; font-size:18px; color:var(--terracotta-dark);}
+
+  /* SKILLS */
+  .skills{background:var(--ink); color:var(--text-light);}
+  .skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px;}
+  .skill-col h3{font-size:17px; color:var(--terracotta-light); margin-bottom:18px; font-weight:600; font-family:'Inter',sans-serif;}
+  .skill-tags{display:flex; flex-wrap:wrap; gap:9px;}
+  .skill-tags span{
+    border:1px solid var(--border-dark); color:var(--text-muted-light); font-size:13px;
+    padding:7px 14px; border-radius:100px;
+  }
+
+  /* EXPERIENCE */
+  .experience{background:var(--cream);}
+  .timeline{border-left:2px solid var(--border-light); margin-left:8px;}
+  .timeline-item{position:relative; padding:0 0 48px 36px;}
+  .timeline-item:last-child{padding-bottom:0;}
+  .timeline-item:before{
+    content:""; position:absolute; left:-7px; top:4px; width:12px; height:12px; border-radius:50%;
+    background:var(--terracotta); border:3px solid var(--cream);
+  }
+  .tl-meta{font-size:13px; color:var(--text-muted-dark); font-weight:600; margin-bottom:6px;}
+  .tl-role{font-size:20px; margin-bottom:2px;}
+  .tl-company{font-size:14.5px; color:var(--terracotta-dark); font-weight:600; margin-bottom:14px;}
+  .tl-bullets{margin-bottom:16px;}
+  .tl-bullets li{list-style:none; position:relative; padding-left:18px; font-size:14.5px; color:var(--text-muted-dark); margin-bottom:8px;}
+  .tl-bullets li:before{content:"—"; position:absolute; left:0; color:var(--terracotta);}
+  .tl-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tl-tags span{background:var(--cream-2); font-size:12px; color:var(--text-muted-dark); padding:5px 12px; border-radius:100px;}
+
+  /* EDUCATION */
+  .education{background:var(--cream-2); padding:72px 0;}
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .edu-card{background:#fff; border:1px solid var(--border-light); border-radius:26px; padding:30px;}
+  .edu-card .edu-year{font-size:13px; color:var(--terracotta-dark); font-weight:600; margin-bottom:8px;}
+  .edu-card h4{font-size:19px; margin-bottom:6px;}
+  .edu-card p{font-size:14.5px; color:var(--text-muted-dark);}
+
+  /* ABOUT */
+  .about{background:var(--cream);}
+  .about-grid{display:grid; grid-template-columns:220px 1fr; gap:56px; align-items:start;}
+  .avatar-wrap{position:relative; width:180px; height:180px;}
+  .avatar-blob{
+    position:absolute; inset:-22px; border-radius:62% 38% 55% 45% / 45% 58% 42% 55%;
+    background:var(--cream-3);
+  }
+  .avatar-circle{
+    position:relative; width:180px; height:180px; border-radius:50%; background:var(--terracotta);
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif;
+    font-size:56px; color:#fff; font-weight:600;
+  }
+  .about-copy h2{font-size:clamp(28px,4vw,38px); margin-bottom:8px;}
+  .about-copy .sub{color:var(--terracotta-dark); font-weight:600; font-size:15px; margin-bottom:22px;}
+  .about-copy p{font-size:15.5px; color:var(--text-muted-dark); margin-bottom:16px; max-width:640px;}
+  .about-tags{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px;}
+  .about-tag-card{background:var(--cream-2); border-radius:20px; padding:18px;}
+  .about-tag-card h5{font-size:14px; margin-bottom:8px; color:var(--text-dark); font-family:'Inter',sans-serif; font-weight:600;}
+  .about-tag-card p{font-size:12.5px; color:var(--text-muted-dark); margin:0;}
+
+  /* CONTACT */
+  .contact{background:var(--ink); color:var(--text-light); text-align:center;}
+  .contact h2{font-size:clamp(32px,5vw,52px); margin-bottom:16px;}
+  .contact p.sub{color:var(--text-muted-light); font-size:17px; max-width:520px; margin:0 auto 36px;}
+  .contact-links{display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:16px;}
+  .contact-email{
+    display:inline-block; font-size:19px; font-weight:600; color:var(--terracotta-light);
+    border-bottom:1.5px solid rgba(232,180,189,0.4); padding-bottom:4px; margin-bottom:28px;
+  }
+  .social-row{display:flex; justify-content:center; gap:14px;}
+  .social-row a{
+    border:1.5px solid rgba(251,238,240,0.25); border-radius:100px; padding:10px 22px; font-size:13.5px; font-weight:500;
+  }
+  .social-row a:hover{border-color:var(--text-light);}
+  footer{padding:28px 0; text-align:center; font-size:13px; color:var(--text-muted-light); border-top:1px solid var(--border-dark);}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .menu-btn{display:block;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .impact-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .edu-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr; text-align:left;}
+    .avatar-circle{width:110px; height:110px; font-size:36px;}
+    .about-tags{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+    .hero{padding:150px 0 90px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <div class="logo">Pritha <span>Arora</span></div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">&#9776;</button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <button class="mobile-close" id="closeMenu" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="#work">Work <span>01</span></a>
+    <a href="#skills">Skills <span>02</span></a>
+    <a href="#experience">Experience <span>03</span></a>
+    <a href="#about">About <span>04</span></a>
+  </div>
+  <a href="#contact" class="mobile-menu-cta">Let's talk</a>
+  <div class="mobile-menu-foot">pritha.arora@pace.edu</div>
+  <div class="mobile-menu-blob"></div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio · New York, NY</div>
+    <h1>Pritha builds things.</h1>
+    <div class="role">Product Manager · Data &amp; Analytics · Full-Stack Builder</div>
+    <p class="lede">I turn ambiguous requirements and messy data into products people actually use — from pharma dashboards serving 500+ providers to a content platform I designed, built, and shipped from scratch. No fluff, just shipped work.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn btn-primary">View projects</a>
+      <a href="#contact" class="btn btn-outline">Let's talk</a>
+    </div>
+  </div>
+</section>
+
+<div class="snapshot">
+  <div class="wrap">
+    <div class="pill">New York, NY</div>
+    <div class="pill"><b>M.S. Computer Science</b> · Pace University · GPA 3.9</div>
+    <div class="pill"><b>B.Tech Computer Science</b> · Bennett University · 8.51 CGPA</div>
+    <div class="pill">Agile / Scrum · Sprint Planning</div>
+    <div class="pill">SQL · Python · Tableau · Power BI</div>
+    <div class="pill">React.js · Figma · REST APIs</div>
+  </div>
+</div>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Proof, not promises</div>
+      <h2>Receipts included.</h2>
+      <p>Two projects taken from a written idea to a working, data-backed product — plus the impact I've driven inside client teams.</p>
+    </div>
+
+    <div class="case-card reveal">
+      <div class="case-top">
+        <div class="tag-row">
+          <span class="tag">React.js</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">TMDB API</span>
+          <span class="tag">Vercel</span>
+        </div>
+        <div class="case-date">Mar 2026</div>
+      </div>
+      <h3>Smart Watchlist — Content Discovery Platform</h3>
+      <p class="problem"><b>The problem:</b> Streaming and box-office content is scattered across too many sources, with no fast way to filter by genre, language, popularity, or timeframe.</p>
+      <p class="whatidid">Designed and launched a Netflix-inspired discovery app end-to-end — five core features including a personalized watchlist, ML-powered recommendations, trailer previews, and intelligent search, all wrapped in a mobile-first responsive build backed by optimized API calls.</p>
+      <div class="stat-grid">
+        <div><div class="stat-num">10K+</div><div class="stat-label">Titles indexed</div></div>
+        <div><div class="stat-num">&lt;2s</div><div class="stat-label">Load time</div></div>
+        <div><div class="stat-num">85%</div><div class="stat-label">User engagement</div></div>
+        <div><div class="stat-num">60%</div><div class="stat-label">Discoverability lift</div></div>
+      </div>
+      <a class="case-doc-link" href="https://app.notion.com/p/Smart-Watchlist-Product-Wiki-326e0ccc283180fc96aee7d6c34a151a" target="_blank" rel="noopener">Read the product wiki →</a>
+    </div>
+
+    <div class="case-card reveal">
+      <div class="case-top">
+        <div class="tag-row">
+          <span class="tag">Tableau</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Statistical Analysis</span>
+        </div>
+        <div class="case-date">Jun 2024</div>
+      </div>
+      <h3>E-Commerce Review Analytics Dashboard</h3>
+      <p class="problem"><b>The problem:</b> 23,000+ customer reviews sat unused, with no clear way to see which products were quietly driving returns or which segments were most profitable.</p>
+      <p class="whatidid">Built an interactive Tableau dashboard with a product segmentation matrix and customer demographic heatmaps — flagging high-revenue SKUs and brand-risk items, and pointing to a data-backed path for smarter ad targeting.</p>
+      <div class="stat-grid">
+        <div><div class="stat-num">23K+</div><div class="stat-label">Reviews analyzed</div></div>
+        <div><div class="stat-num">35%</div><div class="stat-label">Projected ROI lift</div></div>
+        <div><div class="stat-num">1</div><div class="stat-label">Segmentation matrix built</div></div>
+        <div><div class="stat-num">4+</div><div class="stat-label">Demographic heatmaps</div></div>
+      </div>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-meta">Cloud Rank Pvt Ltd · Aug 2024 – Jul 2025</div>
+        <h4>Pharma dashboards for two global clients</h4>
+        <p>Shipped React.js and REST API dashboards for a US pharma client and a Japanese pharma client — real-time patient data tracking and HCP feedback analysis, kept accurate across CRM and ETL pipelines.</p>
+        <div class="impact-stats">
+          <div><b>500+</b>Providers supported</div>
+          <div><b>200+</b>Reps enabled</div>
+          <div><b>40%</b>Insight lift</div>
+          <div><b>25%</b>Faster time-to-market</div>
+        </div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-meta">Aarna Overseas · Dec 2022 – Dec 2023</div>
+        <h4>One source of truth for supply chain data</h4>
+        <p>Consolidated sales, shipment, and warehouse data from 15+ sources into a single Tableau view, then built predictive reorder models for supply chain teams.</p>
+        <div class="impact-stats">
+          <div><b>15+</b>Sources unified</div>
+          <div><b>30%</b>Less unsold inventory</div>
+          <div><b>5</b>Markets analyzed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills light" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What I work with</div>
+      <h2>The toolkit behind the magic.</h2>
+      <p>A mix of product thinking, data fluency, and enough engineering to build the thing myself.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col reveal">
+        <h3>Product management</h3>
+        <div class="skill-tags">
+          <span>Product Strategy</span><span>Roadmap Planning</span><span>PRD Writing</span>
+          <span>A/B Testing</span><span>Feature Prioritization</span><span>Agile / Scrum</span>
+          <span>Go-to-Market Strategy</span><span>Stakeholder Management</span><span>User Research</span>
+          <span>Sprint Planning</span>
+        </div>
+      </div>
+      <div class="skill-col reveal">
+        <h3>Analytics &amp; data</h3>
+        <div class="skill-tags">
+          <span>SQL</span><span>Python</span><span>Tableau</span><span>Power BI</span>
+          <span>Statistical Analysis</span><span>Cohort Analysis</span><span>KPI Design</span>
+          <span>Funnel Optimization</span><span>MAU / DAU / Retention / Churn</span>
+          <span>User Segmentation</span><span>Predictive Modeling</span>
+        </div>
+      </div>
+      <div class="skill-col reveal">
+        <h3>Engineering &amp; tools</h3>
+        <div class="skill-tags">
+          <span>React.js</span><span>JavaScript</span><span>HTML / CSS</span><span>REST APIs</span>
+          <span>Git</span><span>Figma</span><span>Informatica</span><span>Veeva CRM</span>
+          <span>Jira</span><span>Confluence</span><span>Miro</span><span>Google Analytics</span><span>Excel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Experience</div>
+      <h2>Where I've made myself useful.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="tl-meta">Aug 2024 – Jul 2025 · Greater Noida, India</div>
+        <div class="tl-role">Software &amp; Product Consultant</div>
+        <div class="tl-company">Cloud Rank Pvt Ltd</div>
+        <ul class="tl-bullets">
+          <li>Contributed to a drug dosage dashboard for a US pharmaceutical client using React.js and REST APIs, supporting real-time patient data tracking for 500+ healthcare providers.</li>
+          <li>Developed a Patient &amp; Potential Survey dashboard for a Japanese pharma client using React.js and Veeva MyInsights, boosting drug preference insights by 40% for 200+ medical reps.</li>
+          <li>Ensured 95%+ data accuracy across Veeva CRM and Informatica ETL pipelines via weekly validation, collaborating across 3 time zones to cut time-to-market by 25%.</li>
+          <li>Ran requirement gathering sessions, translating business needs into technical specs and coordinating sprint planning with cross-functional stakeholders.</li>
+        </ul>
+        <div class="tl-tags"><span>React.js</span><span>Veeva CRM</span><span>Informatica</span><span>Agile / Scrum</span></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="tl-meta">Dec 2022 – Dec 2023 · Delhi, India</div>
+        <div class="tl-role">Data Analyst Intern</div>
+        <div class="tl-company">Aarna Overseas</div>
+        <ul class="tl-bullets">
+          <li>Built Tableau dashboards consolidating global sales, shipment, and warehouse data from 15+ sources into a single source of truth.</li>
+          <li>Engineered automated data pipelines integrating POS systems, shipping manifests, and supplier feeds; created inventory heatmaps and predictive reorder models.</li>
+          <li>Reduced unsold inventory by 30% through predictive forecasting, delivering executive-facing reports across 5 international markets.</li>
+        </ul>
+        <div class="tl-tags"><span>Tableau</span><span>SQL</span><span>Forecasting</span><span>Data Pipelines</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="education">
+  <div class="wrap">
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-year">May 2027</div>
+        <h4>Pace University</h4>
+        <p>M.S. Computer Science, Product Management Concentration — GPA 3.9</p>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-year">May 2025</div>
+        <h4>Bennett University</h4>
+        <p>B.Tech in Computer Science — CGPA 8.51 / 10</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="avatar-wrap">
+          <div class="avatar-blob"></div>
+          <div class="avatar-circle">PA</div>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <div class="eyebrow">About</div>
+        <h2>Ambiguity in, a plan out.</h2>
+        <div class="sub">Pritha Arora · New York, NY</div>
+        <p>I'm a Computer Science graduate student at Pace University, concentrating in Product Management, with a B.Tech in Computer Science from Bennett University. My work sits at the intersection of product strategy, data analytics, and hands-on engineering — I've written PRDs and run sprint planning, but I've also built the React dashboards and Tableau models myself when that's what the problem needed.</p>
+        <p>Most recently, as a Software &amp; Product Consultant at Cloud Rank, I worked directly with US and Japanese pharma clients — translating clinical and sales requirements into dashboards used by hundreds of healthcare providers and medical reps, while keeping data accuracy above 95% across CRM and ETL pipelines.</p>
+        <p>I'm currently looking for Product Manager, Associate Product Manager, and Data / Business Analyst roles — anywhere I can pair structured thinking with genuine curiosity about the data.</p>
+        <div class="about-tags">
+          <div class="about-tag-card">
+            <h5>Product Management</h5>
+            <p>Strategy · Roadmapping · PRDs · A/B Testing</p>
+          </div>
+          <div class="about-tag-card">
+            <h5>Data &amp; Analytics</h5>
+            <p>SQL · Python · Tableau · Power BI</p>
+          </div>
+          <div class="about-tag-card">
+            <h5>Engineering</h5>
+            <p>React.js · REST APIs · Git · Figma</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2 class="reveal">Let's make something happen.</h2>
+    <p class="sub reveal">I'm looking for Product Manager, Associate PM, and Data / Business Analyst roles. If you're building something that needs sharper thinking about product and data, I'd like to hear about it.</p>
+    <a class="contact-email reveal" href="mailto:pritha.arora@pace.edu">pritha.arora@pace.edu</a>
+    <div class="social-row reveal">
+      <a href="#" data-todo="Add LinkedIn URL">LinkedIn</a>
+      <a href="#" data-todo="Add GitHub URL">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Pritha Arora · Product Manager · Data &amp; Analytics · Builder</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const menuBtn = document.getElementById('menuBtn');
+  const closeMenu = document.getElementById('closeMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
